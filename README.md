@@ -1,2 +1,2 @@
-# Lripl-AndroidApp
-Lripl Android code
+# LRIPL-Android
+LRIPL android code repository 
