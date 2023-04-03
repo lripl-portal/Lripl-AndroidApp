@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="layout.tests">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.lripl.viewmodels.LoginViewModel" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/login_app_logo"
+            android:layout_width="200dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/lripl_logo" />
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_login_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="45dp"
+            android:paddingEnd="45dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/login_app_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:text="@string/login_text"
+            android:textColor="@color/semi_dark_grey"
+            app:lriplTextViewStyle="T4"/>
+
+        <LinearLayout
+            android:id="@+id/mobile_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txt_login_label"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_background_shape"
+            android:layout_margin="@dimen/large_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.lripl.customviews.views.LRIPLTextView
+                android:id="@+id/txt_phone_suffix"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@string/phone_number_suffix"
+                android:background="@color/warm_grey"
+                android:textColor="@color/login_title"
+                app:lriplTextViewStyle="T18" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/access_line_color"/>
+
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/edt_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:gravity="left|center_vertical"
+                android:hint="@string/phone_number"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:digits="1234567890"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/semi_small_margin"
+                android:singleLine="true"
+                android:text="@={loginViewModel.phonenumber}"
+                android:textColor="@color/login_title"
+                android:textColorHint="@color/email_textColor"
+                app:lriplEditTextStyle="I1"/>
+
+        </LinearLayout>
+
+        <com.lripl.customviews.views.LRIPLButton
+            android:id="@+id/btn_send_otp"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/mobile_edit_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:enabled="false"
+            android:layout_marginTop="@dimen/large_margin"
+            android:background="@drawable/negative_btn_bg_selector"
+            android:text="@string/sentotp"
+            app:lriplButtonStyle="B1"
+            android:textColor="@color/semi_dark_grey"
+            android:onClick="@{(v)-> loginViewModel.onLoginClick(v)}"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

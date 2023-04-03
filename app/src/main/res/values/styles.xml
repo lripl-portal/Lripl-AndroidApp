@@ -1,0 +1,88 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/warm_grey</item>
+        <item name="colorControlActivated">@color/pedal_pink_color</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:alertDialogTheme" tools:ignore="NewApi">@android:style/Theme.DeviceDefault.Light.Dialog.Alert</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyTresperant" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+
+
+    <style name="TextAppearanceHint" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/semi_dark_grey</item>
+    </style>
+
+    <style name="HintSize" parent="TextAppearance.Design.Hint">
+        <item name="lriplTextViewStyle">T8</item>
+        <item name="android:textColor">@color/semi_dark_grey</item>
+    </style>
+    <style name="InputTextHintSize" parent="TextAppearance.Design.Hint">
+        <item name="lriplTextViewStyle">T8</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextLabel" parent="@android:style/TextAppearance">
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="lriplTextViewStyle">T4</item>
+        <item name="colorAccent">@color/warm_grey</item>
+        <item name="colorControlNormal">@color/warm_grey</item>
+        <item name="colorControlActivated">@color/semi_dark_grey</item>
+        <item name="android:textColorHighlight">@color/semi_dark_grey</item>
+        <item name="android:textColorLink">@color/semi_dark_grey</item>
+
+    </style>
+
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="lriplTextViewStyle">T14</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/error_hint_appearance</item>
+    </style>
+
+    <style name="error_hint_appearance" parent="@android:style/TextAppearance">
+        <item name="lriplTextViewStyle">T14</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/error_hint_appearance</item>
+
+    </style>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="BaseActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/black_trans</item>
+    </style>
+
+</resources>

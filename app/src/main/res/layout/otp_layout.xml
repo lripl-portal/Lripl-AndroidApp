@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="layout.tests">
+
+    <data>
+
+        <variable
+            name="otpViewModel"
+            type="com.lripl.viewmodels.OtpViewModel"></variable>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_mobile_verify_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Enter Verification Code"
+            android:textColor="@color/dark_grey"
+            app:lriplTextViewStyle="T28" />
+
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_mobile_verify_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mobile_verify_label"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            app:lriplTextViewStyle="T8" />
+
+        <LinearLayout
+            android:id="@+id/edit_pin_verify_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mobile_verify_msg"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            android:weightSum="6"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal">
+
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textColor="@color/colorPrimary"
+                app:lriplEditTextStyle="I2"
+                android:gravity="center"
+                android:maxLength="1"
+                android:inputType="number"
+                android:layout_weight="1"/>
+
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@android:color/darker_gray"
+                app:lriplEditTextStyle="I2"
+                android:maxLength="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textColor="@color/colorPrimary"
+                app:lriplEditTextStyle="I2"
+                android:maxLength="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_weight="1"/>
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_4"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textColor="@color/colorPrimary"
+                app:lriplEditTextStyle="I2"
+                android:maxLength="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_5"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:maxLength="1"
+                android:textColor="@color/colorPrimary"
+                app:lriplEditTextStyle="I2"
+                android:inputType="number"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <com.lripl.customviews.views.LRIPLEditText
+                android:id="@+id/verify_code_6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:maxLength="1"
+                android:textColor="@color/colorPrimary"
+                app:lriplEditTextStyle="I2"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/edit_pin_verify_layout"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="end"
+            android:layout_marginEnd="45dp"
+            app:lriplTextViewStyle="T9"/>
+
+        <com.lripl.customviews.views.LRIPLButton
+            android:id="@+id/btn_confirm_otp"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/txt_resend_code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:enabled="false"
+            app:lriplButtonStyle="B1"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:background="@drawable/negative_btn_bg_selector"
+            android:text="@string/confirm_button"
+            android:onClick="@{(v)-> otpViewModel.onOtpVerifyClick(v)}"
+            android:textColor="@color/semi_dark_grey" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

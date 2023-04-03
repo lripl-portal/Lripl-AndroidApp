@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="layout.tests">
+
+    <data>
+        <variable
+            name="enquirySuccessViewModel"
+            type="com.lripl.viewmodels.EnquirySuccessViewModel" />
+    </data>
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <com.lripl.customviews.GifImageView
+        android:id="@+id/img_enquiry_success"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <com.lripl.customviews.views.LRIPLTextView
+        android:id="@+id/txt_enquiry_success_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Enquiry Confirmed"
+        app:lriplTextViewStyle="T17"
+        android:textColor="@color/black" />
+
+    <com.lripl.customviews.views.LRIPLTextView
+        android:id="@+id/txt_enquiry_success_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="Your enquiry has been sent successfully, our team will connect you shortly."
+        app:lriplTextViewStyle="T9"
+        android:textColor="@color/semi_dark_grey" />
+
+        <com.lripl.customviews.views.LRIPLButton
+            android:id="@+id/btn_view_enquiry"
+            android:layout_width="180dp"
+            android:layout_height="38dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:background="@drawable/verify_btn_bg_selector"
+            android:text="VIEW ENQUIRY"
+            app:lriplButtonStyle="B3"
+            android:textColor="@color/white"/>
+
+    <com.lripl.customviews.views.LRIPLButton
+        android:id="@+id/btn_category_main_menu"
+        android:layout_width="180dp"
+        android:layout_height="38dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/verify_btn_bg_selector"
+        android:text="HOME PAGE"
+        app:lriplButtonStyle="B3"
+        android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+</layout>

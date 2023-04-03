@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "72948893067",
+    "firebase_url": "https://lriplmobileapps.firebaseio.com",
+    "project_id": "lriplmobileapps",
+    "storage_bucket": "lriplmobileapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72948893067:android:45c4f4f70ff3ac8a",
+        "android_client_info": {
+          "package_name": "com.lripl.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72948893067-nd9d7idemuqdpksrgijfelqp6gcrks4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAUIjqnR8dAdWwc4VsHiBlwHisB_JTN7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72948893067-nd9d7idemuqdpksrgijfelqp6gcrks4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72948893067:android:d0ee529477698fe9",
+        "android_client_info": {
+          "package_name": "com.lripl.dealer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72948893067-nd9d7idemuqdpksrgijfelqp6gcrks4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAUIjqnR8dAdWwc4VsHiBlwHisB_JTN7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72948893067-nd9d7idemuqdpksrgijfelqp6gcrks4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

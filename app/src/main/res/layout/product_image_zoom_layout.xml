@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="layout.tests">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_background_shape">
+
+        <ImageView
+            android:id="@+id/img_image_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_close_red_24dp" />
+
+        <com.lripl.utils.ZoomableImageView
+            android:id="@+id/img_product_zoom_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/img_image_close"/>
+
+        <com.pnikosis.materialishprogress.ProgressWheel
+            android:id="@+id/progress_wheel"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            app:matProg_barColor="@color/colorPrimaryDark"
+            app:matProg_progressIndeterminate="true" />
+
+    </RelativeLayout>
+
+    <data>
+
+        <variable
+            name="ProductDetailViewModel"
+            type="com.lripl.viewmodels.ProductDetailViewModel" />
+    </data>
+
+</layout>

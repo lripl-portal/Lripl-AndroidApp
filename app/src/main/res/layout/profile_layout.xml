@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="layout.tests">
+
+    <data>
+
+        <variable
+            name="profileViewModel"
+            type="com.lripl.viewmodels.ProfileViewModel"></variable>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="top|center_horizontal"
+                android:orientation="vertical">
+
+                <com.lripl.customviews.CircularImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/circular_image_background"
+                    android:onClick="@{(v)-> profileViewModel.onChangePhotoClick()}"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/image_unknown" />
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:onClick="@{(v)-> profileViewModel.onChangePhotoClick()}"
+                    android:text="Change Photo"
+                    android:textColor="@color/semi_dark_grey"
+                    app:lriplTextViewStyle="T4" />
+
+
+                <com.lripl.customviews.views.LRIPLTextInputLayout
+                    android:id="@+id/textInput_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:theme="@style/TextLabel"
+                    app:errorTextAppearance="@style/error_hint_appearance"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintSize">
+
+                    <com.lripl.customviews.views.LRIPLEditText
+                        android:id="@+id/edt_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={profileViewModel.fullName}"
+                        android:textColor="@color/black"
+                        app:lriplEditTextStyle="I3" />
+
+                </com.lripl.customviews.views.LRIPLTextInputLayout>
+
+                <com.lripl.customviews.views.LRIPLTextInputLayout
+                    android:id="@+id/textInput_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/TextLabel"
+                    app:errorTextAppearance="@style/error_hint_appearance"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintSize">
+
+                    <com.lripl.customviews.views.LRIPLEditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email Id"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={profileViewModel.emailId}"
+                        android:textColor="@color/black"
+                        app:lriplEditTextStyle="I3" />
+
+                </com.lripl.customviews.views.LRIPLTextInputLayout>
+
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Mobile Number *"
+                    android:textColor="@color/semi_dark_grey"
+                    android:theme="@style/TextLabel"
+                    app:lriplTextViewStyle="T8" />
+
+
+                <com.lripl.customviews.PrefixEditText
+                    android:id="@+id/edt_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:tag="+91 "
+                    android:text="@={profileViewModel.phoneNumber}"
+                    android:textColor="@color/black"
+                    app:errorTextAppearance="@style/error_hint_appearance"
+                    app:lriplEditTextStyle="I3" />
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:id="@+id/txt_mobile_error_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:text="@string/mobile_number_validation"
+                    android:textColor="@color/error_hint_appearance"
+                    android:theme="@style/TextLabel"
+                    android:visibility="gone"
+                    app:lriplTextViewStyle="T8" />
+
+
+                <com.lripl.customviews.views.LRIPLTextInputLayout
+                    android:id="@+id/textInput_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/TextLabel"
+                    app:errorTextAppearance="@style/error_hint_appearance"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintSize">
+
+                    <com.lripl.customviews.views.LRIPLEditText
+                        android:id="@+id/edt_company_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Company Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={profileViewModel.companyName}"
+                        android:textColor="@color/black"
+                        app:lriplEditTextStyle="I3" />
+
+                </com.lripl.customviews.views.LRIPLTextInputLayout>
+
+
+                <com.lripl.customviews.views.LRIPLTextInputLayout
+                    android:id="@+id/textGSTINLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/TextLabel"
+                    app:errorTextAppearance="@style/error_hint_appearance"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintSize">
+
+                    <com.lripl.customviews.views.LRIPLEditText
+                        android:id="@+id/edt_gst_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="GST Number"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={profileViewModel.gstNumber}"
+                        android:textColor="@color/black"
+                        app:lriplEditTextStyle="I3" />
+
+                </com.lripl.customviews.views.LRIPLTextInputLayout>
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="15dp"
+                    android:text="State"
+                    android:textColor="@color/semi_dark_grey"
+                    app:lriplTextViewStyle="T8" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/stateDropDown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="2.5"
+                    android:onClick="@{(v)-> profileViewModel.onStateSpinnerClick()}"
+                    android:orientation="horizontal">
+
+
+                    <com.lripl.customviews.views.LRIPLTextView
+                        android:id="@+id/profile_stateDropDown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center|left"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:singleLine="true"
+                        android:text="Select your state"
+                        android:textColor="@color/semi_dark_grey"
+                        app:layout_constraintHorizontal_weight="6"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/profile_stateDropDownIcon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lriplTextViewStyle="T3" />
+
+                    <com.lripl.customviews.iconviews.LRIPLIconView
+                        android:id="@+id/profile_stateDropDownIcon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="2dp"
+                        android:text="J"
+                        android:textColor="@color/semi_dark_grey"
+                        android:textSize="28sp"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/countryDropDownDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/semi_dark_grey"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_stateDropDown" />
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

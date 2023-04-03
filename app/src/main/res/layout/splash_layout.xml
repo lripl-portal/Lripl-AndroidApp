@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="fitEnd"
+        android:src="@mipmap/ic_fade_pedtal"
+        tools:ignore="MissingConstraints" />
+
+   <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/splash_app_logo"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/lripl_logo_new"
+            android:layout_centerHorizontal="true"
+           android:layout_marginTop="150dp"
+            tools:ignore="MissingConstraints" />
+
+        <com.lripl.customviews.TypeWriterTextView
+            android:id="@+id/txt_india_num_one"
+            android:layout_above="@+id/txt_remote_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            app:lriplTextViewStyle="T27"
+            android:textSize="39.2sp"
+            android:textStyle="bold"
+            android:paddingStart="2dp"
+            android:textColor="@color/colorPrimary" />
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_remote_control"
+            android:layout_above="@+id/txt_app_name_hindi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="200dp"
+            app:lriplTextViewStyle="T5"
+            android:visibility="invisible"
+            android:textColor="@color/black"
+            android:text="Remote Control Brand"/>
+
+        <View
+            android:id="@+id/splash_divider"
+            android:layout_above="@+id/txt_app_name_hindi"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black" />
+
+        <com.lripl.customviews.views.LRIPLTextView
+            android:id="@+id/txt_app_name_hindi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="लक्ष्मी रिमोट"
+            android:textColor="@color/colorPrimary"
+            app:lriplTextViewStyle="T18"/>
+
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

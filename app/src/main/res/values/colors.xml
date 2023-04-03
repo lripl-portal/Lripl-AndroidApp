@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#db3c5a</color>
+    <color name="colorPrimaryDark">#811C34</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="button_color">#7B8C93</color>
+    <color name="line_color">#7a7f82</color>
+    <color name="login_bgColor">#0495d6</color>
+    <color name="login_textColor">#ffffff</color>
+    <color name="cam_before">#e4e5ea</color>
+    <color name="email_textColor">#666666</color>
+    <color name="no_accountColor">#474a53</color>
+    <color name="select_wifi">#427cb2</color>
+    <color name="selected">#50e3c2</color>
+    <color name="label_color">#a5a5a5</color>
+    <color name="divider_color">#aaaaaa</color>
+    <color name="select_wifi_bg">#e9e9eb</color>
+    <color name="wifi_warning_camera">#b5e3f7</color>
+    <color name="camera_line">#36aade</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="green">#50e3c2</color>
+    <color name="progress_start">#ffffff</color>
+    <color name="progress_end">#50e3c2</color>
+    <color name="Orange">#ffa500</color>
+    <color name="GREEN">#62BB47</color>
+    <color name="transparent">#e31b1b1b</color>
+    <color name="setting_header">#427cb2</color>
+    <color name="setting_title">#ffffff</color>
+    <color name="setting_border">#e9e9e9</color>
+    <color name="transparent_new">#3ca0ff</color>
+    <color name="live_stream_bg">#231f20</color>
+    <color name="rippelColor">#0099CC</color>
+    <color name="red">#e1615d</color>
+    <color name="login_title">#474a53</color>
+    <color name="settings_hint">#999999</color>
+    <color name="hilight">#0495d6</color>
+    <color name="login_hint">#6e717a</color>
+    <color name="events_bg_color">#3ca0ff</color>
+    <color name="user_email_color">#cfe1f2</color>
+    <color name="camera_list_bg__color">#231f20</color>
+    <color name="camera_list_line__color">#5ea7ec</color>
+    <color name="selected_camera_list_item">#4fe3c1</color>
+    <color name="yellow">#e3c84f</color>
+    <color name="stroke">#cccccc</color>
+    <color name="label">#cae2f9</color>
+    <color name="access_label">#3ca0ff</color>
+    <color name="drwer_handel">#b2d0ed</color>
+    <color name="access_color">#474a53</color>
+    <color name="access_divider_color">#6db6fc</color>
+    <color name="access_line_color">#cecece</color>
+    <color name="member_bg">#e9e9ed</color>
+    <color name="btn_pnl_bg">#40000000</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="blue_led_glow">#C8E3EF</color>
+    <color name="edit_text_bg">#F6FAFB</color>
+
+    <color name="warm_grey">#d3d3d3</color>
+    <color name="light_grey">#ECECEC</color>
+    <color name="semi_dark_grey">#98989C</color>
+    <color name="dark_grey">#333333</color>
+
+    <color name="pedal_pink_color">#e61970</color>
+    <!-- Edit text error color -->
+    <color name="error_hint_appearance">#e50045</color>
+
+    <!--Selection background color for recycler view-->
+    <color name="dl_list_start_color">#40db3c5a</color>
+    <color name="dl_list_center_color">#db3c5a</color>
+    <color name="dl_list_end_color">#66db3c5a</color>
+    <color name="dl_list_stroke_color">#000000</color>
+    <color name="white_opacity_40_color">#66FFFFFF</color>
+
+
+    <color name="card_start_color">#99db3c5a</color>
+    <color name="card_center_color">#db3c5a</color>
+    <color name="card_end_color">#db3c5a</color>
+
+    <color name="black_trans">#80000000</color>
+
+    <color name="status_in_progress">#E74C3C</color>
+    <color name="status_in_pending">#7F8C8D</color>
+    <color name="status_in_confirmed">#27A260</color>
+    <color name="status_in_closed">#BDC3C7</color>
+</resources>

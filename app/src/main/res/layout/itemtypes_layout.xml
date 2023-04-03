@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="layout.tests">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+
+            <RelativeLayout
+                android:id="@+id/user_card_layout"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/card_background_shape"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.lripl.customviews.views.LRIPLButton
+                    android:id="@+id/btn_view_enquiry"
+                    android:layout_width="110dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/txt_enquiry_no"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/transparent_button_shape"
+                    android:onClick="@{(v)-> itemTypeViewModel.onViewEnquiryClick()}"
+                    android:text="View Details"
+                    android:textAllCaps="false"
+                    android:visibility="gone"
+                    android:textColor="@color/light_grey"
+                    app:lriplButtonStyle="B3"/>
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:id="@+id/txt_enquiry_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_user_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="You have not enquired yet."
+                    android:textColor="@color/light_grey"
+                    app:lriplTextViewStyle="T26"/>
+
+
+                <com.lripl.customviews.views.LRIPLTextView
+                    android:id="@+id/txt_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="55dp"
+                    android:textColor="@color/white"
+                    app:lriplTextViewStyle="T17"/>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="60dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitEnd"
+                    android:src="@mipmap/lripl_logo_white"
+                    tools:ignore="MissingConstraints" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitEnd"
+                    android:src="@mipmap/ic_fade_pedtal"
+                    tools:ignore="MissingConstraints" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/item_top_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/horizontal_line_shape"
+                app:layout_constraintTop_toBottomOf="@+id/user_card_layout" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_top_divider" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <data>
+
+        <variable
+            name="itemTypeViewModel"
+            type="com.lripl.viewmodels.ItemTypesViewModel" />
+    </data>
+
+</layout>
