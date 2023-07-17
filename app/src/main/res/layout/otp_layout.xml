@@ -100,26 +100,26 @@
                 android:inputType="number"
                 android:gravity="center"
                 android:layout_weight="1"/>
-            <com.lripl.customviews.views.LRIPLEditText
-                android:id="@+id/verify_code_5"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:maxLength="1"
-                android:textColor="@color/colorPrimary"
-                app:lriplEditTextStyle="I2"
-                android:inputType="number"
-                android:gravity="center"
-                android:layout_weight="1"/>
-            <com.lripl.customviews.views.LRIPLEditText
-                android:id="@+id/verify_code_6"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:maxLength="1"
-                android:textColor="@color/colorPrimary"
-                app:lriplEditTextStyle="I2"
-                android:gravity="center"
-                android:inputType="number"
-                android:layout_weight="1"/>
+<!--            <com.lripl.customviews.views.LRIPLEditText-->
+<!--                android:id="@+id/verify_code_5"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:maxLength="1"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                app:lriplEditTextStyle="I2"-->
+<!--                android:inputType="number"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_weight="1"/>-->
+<!--            <com.lripl.customviews.views.LRIPLEditText-->
+<!--                android:id="@+id/verify_code_6"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:maxLength="1"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                app:lriplEditTextStyle="I2"-->
+<!--                android:gravity="center"-->
+<!--                android:inputType="number"-->
+<!--                android:layout_weight="1"/>-->
 
         </LinearLayout>
 

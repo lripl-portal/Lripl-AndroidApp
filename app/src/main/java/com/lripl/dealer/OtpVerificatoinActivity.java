@@ -42,7 +42,7 @@ public class OtpVerificatoinActivity extends BaseActivity implements OTPEditText
         otpLayoutBinding.setOtpViewModel(otpViewModel);
         otpLayoutBinding.setLifecycleOwner(this);
         otpViewModel.setPinCodeEditText(new EditText[]{otpLayoutBinding.verifyCode1, otpLayoutBinding.verifyCode2, otpLayoutBinding.verifyCode3,
-                otpLayoutBinding.verifyCode4, otpLayoutBinding.verifyCode5, otpLayoutBinding.verifyCode6}, this);
+                otpLayoutBinding.verifyCode4}, this);
         otpViewModel.requestFocusForEditTextAtIndex(0);
 
     }
