@@ -1,17 +1,17 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.os.Build;
+import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -21,7 +21,6 @@ import com.lripl.dealer.databinding.ItemLayoutBinding;
 import com.lripl.entities.Items;
 import com.lripl.utils.Constants;
 import com.lripl.utils.GridSpacingItemDecoration;
-import com.lripl.utils.Utils;
 import com.lripl.viewmodels.CommonViewModelFactory;
 import com.lripl.viewmodels.ItemViewModel;
 

@@ -1,16 +1,16 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -115,7 +115,7 @@ public class ItemsTypeListActivity extends  BaseActivity implements CategoryAdap
     }
 
     public void getLoacalOrders(final String usr_id){
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 List<Orders> ordersList = AppDatabase.getInstance(ItemsTypeListActivity.this).ordersDao().getAllOrdersByuser(usr_id);

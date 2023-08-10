@@ -1,9 +1,9 @@
 package com.lripl.viewmodels;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -208,7 +208,7 @@ public class OtpViewModel extends BaseViewModel implements BaseViewInterface.Otp
         try {
             JSONObject object = new JSONObject();
             object.put("phonenumber", activity.getIntent().getStringExtra(Constants.PARSE_PHONE_NUMBER));
-            object.put("devicetoken", SharedPrefsHelper.getInstanse(activity).get(Constants.PREF_KEYS.DEVICE_TOKEN.name(), ""));
+            object.put("devicetoken", SharedPrefsHelper.getInstance(activity).get(Constants.PREF_KEYS.DEVICE_TOKEN.name(), ""));
             object.put("platform", Constants.PLATFORM);
             object.put("device", Build.MANUFACTURER + " " + Build.MODEL);
             object.put("deviceos", Build.VERSION.RELEASE + " " + Build.VERSION_CODES.class.getFields()[android.os.Build.VERSION.SDK_INT].getName());
@@ -357,11 +357,11 @@ public class OtpViewModel extends BaseViewModel implements BaseViewInterface.Otp
         } else if (Utils.NullChecker(user.user_id).isEmpty()) {
             Utils.showAlertDialog(activity, user.phonenumber);
         } else if (user.isactive) {
-            SharedPrefsHelper.getInstanse(activity).put(Constants.USER_AUTH_TOKEN, user.token);
+            SharedPrefsHelper.getInstance(activity).put(Constants.USER_AUTH_TOKEN, user.token);
             insertuser(user);
             loadZonesRequest();
         } else {
-            SharedPrefsHelper.getInstanse(activity).put(Constants.USER_AUTH_TOKEN, user.token);
+            SharedPrefsHelper.getInstance(activity).put(Constants.USER_AUTH_TOKEN, user.token);
             Intent otp_intent = new Intent(activity, ProfileActivity.class);
             otp_intent.putExtra(Constants.PARSE_USER_OBJ, user);
             otp_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -371,15 +371,12 @@ public class OtpViewModel extends BaseViewModel implements BaseViewInterface.Otp
     }
 
     private void insertuser(final Users user) {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                AppDatabase.getInstance(activity.getApplicationContext()).userDao().insert(user);
-                Intent otp_intent = new Intent(activity, ItemsTypeListActivity.class);
-                otp_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                activity.startActivity(otp_intent);
-                activity.finish();
-            }
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            AppDatabase.getInstance(activity.getApplicationContext()).userDao().insert(user);
+            Intent otp_intent = new Intent(activity, ItemsTypeListActivity.class);
+            otp_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            activity.startActivity(otp_intent);
+            activity.finish();
         });
     }
 
@@ -405,7 +402,7 @@ public class OtpViewModel extends BaseViewModel implements BaseViewInterface.Otp
 
     private Observable<Response<List<Zones>>> getZonesObservable() {
         //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).getzones(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).getzones(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, "")).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
@@ -413,24 +410,21 @@ public class OtpViewModel extends BaseViewModel implements BaseViewInterface.Otp
     public void loadZonesResponse(List<Zones> zonesList) {
         Log.i(ProfileViewModel.class.getName(), "----------loadZonesResponse-------" + zonesList.size());
         if (zonesList != null && zonesList.size() > 0) {
-            inserZonesAndStates(zonesList);
+            insertZonesAndStates(zonesList);
         } else {
             Utils.showAlertDialog(activity, "Zones loading failed. Please try again.");
         }
     }
 
 
-    private void inserZonesAndStates(final List<Zones> zonesList) {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                for (Zones zones : zonesList) {
-                    AppDatabase.getInstance(activity.getApplicationContext()).zonesDao().saveZone(zones);
-                    Log.i(ProfileViewModel.class.getName(), "----------States Size-------" + zones.statesList.size());
-                    AppDatabase.getInstance(activity.getApplicationContext()).statesDao().saveStates(zones.statesList);
-                }
-
+    private void insertZonesAndStates(final List<Zones> zonesList) {
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            for (Zones zones : zonesList) {
+                AppDatabase.getInstance(activity.getApplicationContext()).zonesDao().saveZone(zones);
+                Log.i(ProfileViewModel.class.getName(), "----------States Size-------" + zones.statesList.size());
+                AppDatabase.getInstance(activity.getApplicationContext()).statesDao().saveStates(zones.statesList);
             }
+
         });
 
         //activity.spinnerAdapter.notifyDataSetChanged();

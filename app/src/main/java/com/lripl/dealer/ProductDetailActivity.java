@@ -1,30 +1,23 @@
 package com.lripl.dealer;
 
 import android.app.Dialog;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.graphics.Typeface;
+import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v4.view.GravityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lripl.customviews.FlowLayout;
-import com.lripl.customviews.views.LRIPLFontStyle;
 import com.lripl.customviews.views.LRIPLTextView;
 import com.lripl.dealer.databinding.ProductDetailsLayoutBinding;
 import com.lripl.dealer.databinding.ProductImageZoomLayoutBinding;
@@ -32,7 +25,6 @@ import com.lripl.entities.Products;
 import com.lripl.network.LoadImageTask;
 import com.lripl.network.RestApiClient;
 import com.lripl.utils.Constants;
-import com.lripl.utils.FontManager;
 import com.lripl.utils.Utils;
 import com.lripl.viewmodels.CommonViewModelFactory;
 import com.lripl.viewmodels.ProductDetailViewModel;

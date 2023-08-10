@@ -1,12 +1,11 @@
 package com.lripl.viewmodels;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.lripl.database.AppDatabase;
@@ -22,8 +21,6 @@ import com.lripl.network.RetryWithDelay;
 import com.lripl.utils.Constants;
 import com.lripl.utils.Utils;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -78,23 +75,20 @@ public class EnquiryListViewModel extends BaseViewModel implements BaseViewInter
     }
 
     private void InsertOrders(final List<Orders> ordersList){
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                for(Orders orders:ordersList){
-                    AppDatabase.getInstance(activity).ordersDao().insert(orders);
-                    AppDatabase.getInstance(activity).orderItemDao().insertAll(orders.orderItemObjs);
-                }
-                hideProgress();
-                ordersListLivedata.postValue(ordersList);
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            for(Orders orders:ordersList){
+                AppDatabase.getInstance(activity).ordersDao().insert(orders);
+                AppDatabase.getInstance(activity).orderItemDao().insertAll(orders.orderItemObjs);
             }
+            hideProgress();
+            ordersListLivedata.postValue(ordersList);
         });
 
     }
 
     private Observable<Response<List<Orders>>> getObservable(String body){
         //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).getOrders(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).getOrders(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, ""), body).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 

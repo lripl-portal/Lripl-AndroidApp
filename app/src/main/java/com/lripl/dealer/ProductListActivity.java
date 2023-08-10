@@ -1,19 +1,19 @@
 package com.lripl.dealer;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -28,8 +28,6 @@ import com.lripl.dealer.databinding.ProductslistLayoutBinding;
 import com.lripl.entities.Products;
 import com.lripl.entities.States;
 import com.lripl.model.MenuModel;
-import com.lripl.network.LoadImageTask;
-import com.lripl.network.RestApiClient;
 import com.lripl.utils.Constants;
 import com.lripl.utils.Utils;
 import com.lripl.viewmodels.CommonViewModelFactory;

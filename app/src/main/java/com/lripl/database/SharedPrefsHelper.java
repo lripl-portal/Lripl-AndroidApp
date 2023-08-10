@@ -16,7 +16,7 @@ public class SharedPrefsHelper {
         mSharedPreferences = context.getSharedPreferences(PREF_KEY,context.MODE_PRIVATE);
     }
 
-    public static SharedPrefsHelper getInstanse(Context context){
+    public static SharedPrefsHelper getInstance(Context context){
         if(sharedPrefsHelper == null){
             sharedPrefsHelper = new SharedPrefsHelper(context);
         }

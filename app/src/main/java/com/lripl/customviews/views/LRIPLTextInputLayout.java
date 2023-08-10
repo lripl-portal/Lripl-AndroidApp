@@ -3,8 +3,8 @@ package com.lripl.customviews.views;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
+
+import com.google.android.material.textfield.TextInputLayout;
 import android.util.AttributeSet;
 
 import com.lripl.dealer.R;

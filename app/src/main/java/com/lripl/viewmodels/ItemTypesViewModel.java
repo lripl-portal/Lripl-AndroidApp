@@ -1,11 +1,11 @@
 package com.lripl.viewmodels;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -13,7 +13,6 @@ import com.lripl.database.AppDatabase;
 import com.lripl.database.AppExecutors;
 import com.lripl.database.SharedPrefsHelper;
 import com.lripl.dealer.EnquiriesListActivity;
-import com.lripl.dealer.EnquiryItemDetails;
 import com.lripl.dealer.ItemsTypeListActivity;
 import com.lripl.dealer.R;
 import com.lripl.entities.ItemType;
@@ -79,23 +78,20 @@ public class ItemTypesViewModel extends BaseViewModel implements BaseViewInterfa
     }
 
     private void insertItemsIntoDB(final List<ItemType> itemTypeList){
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                for (ItemType itemType : itemTypeList){
-                    Log.i(ItemTypesViewModel.class.getName(),"-----getItemTypesResponse------"+itemType.name+" : "+itemType.itemslist.size());
-                    appDatabase.itemTypeDao().saveItemType(itemType);
-                    appDatabase.itemsDao().saveItems(itemType.itemslist);
-                    appDatabase.productsDao().saveProducts(itemType.productsList);
-                }
-
-
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            for (ItemType itemType : itemTypeList){
+                Log.i(ItemTypesViewModel.class.getName(),"-----getItemTypesResponse------"+itemType.name+" : "+itemType.itemslist.size());
+                appDatabase.itemTypeDao().saveItemType(itemType);
+                appDatabase.itemsDao().saveItems(itemType.itemslist);
+                appDatabase.productsDao().saveProducts(itemType.productsList);
             }
+
+
         });
     }
 
     private void fillItemTypes(){
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 itemListLiveData = appDatabase.itemTypeDao().getAllItemTypes();
@@ -116,7 +112,7 @@ public class ItemTypesViewModel extends BaseViewModel implements BaseViewInterfa
    }
     private Observable<Response<List<ItemType>>> getItemTypeObservable() {
         //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).getitemtypes(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).getitemtypes(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, "")).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
@@ -190,7 +186,7 @@ public class ItemTypesViewModel extends BaseViewModel implements BaseViewInterfa
     private Observable<Response<List<Orders>>> getObservable(String body){
         Log.i("ViewModelItem","body"+body);
         //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).getOrders(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).getOrders(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, ""), body).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 

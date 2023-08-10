@@ -1,22 +1,16 @@
 package com.lripl.adapters;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lripl.database.AppDatabase;
-import com.lripl.dealer.EnquiryItemDetails;
 import com.lripl.dealer.R;
 import com.lripl.dealer.databinding.EnquiryItemlistItemBinding;
 import com.lripl.entities.OrderItem;
-import com.lripl.entities.Products;
 import com.lripl.network.RestApiClient;
 import com.lripl.utils.Utils;
 import com.squareup.picasso.Picasso;

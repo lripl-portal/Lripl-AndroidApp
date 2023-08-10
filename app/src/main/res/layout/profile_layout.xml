@@ -198,7 +198,7 @@
                     android:textColor="@color/semi_dark_grey"
                     app:lriplTextViewStyle="T8" />
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/stateDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -247,7 +247,7 @@
                         android:background="@color/semi_dark_grey"
                         app:layout_constraintTop_toBottomOf="@+id/profile_stateDropDown" />
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>

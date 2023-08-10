@@ -1,12 +1,8 @@
 package com.lripl.viewmodels;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.lripl.database.AppDatabase;
 import com.lripl.dealer.ProductDetailActivity;
-import com.lripl.dealer.ProductListActivity;
-import com.lripl.utils.Constants;
-import com.lripl.utils.Utils;
 
 public class ProductDetailViewModel extends BaseViewModel {
 

@@ -4,13 +4,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.lripl.database.SharedPrefsHelper;
 import com.lripl.dealer.CartListActivity;
 import com.lripl.dealer.EnquirySuccessActivity;
-import com.lripl.dealer.ItemsTypeListActivity;
 import com.lripl.dealer.R;
 import com.lripl.mvp.BaseResponse;
 import com.lripl.network.RestApiClient;
@@ -75,7 +74,7 @@ public class CartListViewModel extends BaseViewModel implements BaseViewInterfac
 
     private Observable<Response<BaseResponse>> getObservable(String body){
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).saveorders(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).saveorders(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, ""), requestBody).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 

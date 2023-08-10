@@ -2,15 +2,11 @@ package com.lripl.customviews;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.PictureDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.v7.widget.AppCompatImageView;
-import android.util.AttributeSet;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
+import androidx.appcompat.widget.AppCompatImageView;
+import android.util.AttributeSet;
 
 
 public class CircularImageView extends AppCompatImageView {

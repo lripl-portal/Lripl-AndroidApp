@@ -1,8 +1,7 @@
 package com.lripl.viewmodels;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.lripl.dealer.CartListActivity;
 import com.lripl.dealer.EnquirySuccessActivity;
 
 public class EnquirySuccessViewModel extends BaseViewModel {

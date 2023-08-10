@@ -1,29 +1,25 @@
 package com.lripl.dealer;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,8 +39,6 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import okhttp3.internal.Util;
 
 public abstract class BaseActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -111,22 +105,16 @@ public abstract class BaseActivity extends AppCompatActivity  implements Navigat
         txt_lripl_phone = navigationView.findViewById(R.id.txt_lripl_phone_num);
         txt_appversion.setText("v"+BuildConfig.VERSION_NAME);
 
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                user = AppDatabase.getInstance(getApplicationContext()).userDao().getUserEntity();
-                user.observe(BaseActivity.this, new Observer<Users>() {
-                    @Override
-                    public void onChanged(@Nullable Users users) {
-                        if(users != null) {
-                            user_id = users.user_id;
-                            txt_full_name.setText(users.fullname);
-                            txt_emailid.setText(users.emailid);
-                            Picasso.get().load(RestApiClient.PROFILE_IMAGES_PATH + users.profilepicurl).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).placeholder(R.mipmap.image_unknown).error(R.mipmap.image_unknown).transform(new PicassoCircleTransformation()).into(imageView);
-                        }
-                    }
-                });
-            }
+        AppExecutors.getInstance().mainThread().execute(() -> {
+            user = AppDatabase.getInstance(getApplicationContext()).userDao().getUserEntity();
+            user.observe(BaseActivity.this, users -> {
+                if(users != null) {
+                    user_id = users.user_id;
+                    txt_full_name.setText(users.fullname);
+                    txt_emailid.setText(users.emailid);
+                    Picasso.get().load(RestApiClient.PROFILE_IMAGES_PATH + users.profilepicurl).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).placeholder(R.mipmap.image_unknown).error(R.mipmap.image_unknown).transform(new PicassoCircleTransformation()).into(imageView);
+                }
+            });
         });
 
         //enquiry_livedata.setValue(Utils.product_enquiry);
@@ -259,16 +247,13 @@ public abstract class BaseActivity extends AppCompatActivity  implements Navigat
                 // Write your code here to execute after dialog closed
                 //Toast.makeText(context, "You clicked on OK", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        AppDatabase.getInstance(context).clearAllTables();
-                        SharedPrefsHelper.getInstanse(context).deleteSavedData(Constants.USER_AUTH_TOKEN);
-                        Intent i = new Intent(context, LoginActivity.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        context.startActivity(i);
-                        ((AppCompatActivity) context).finish();
-                    }
+                AppExecutors.getInstance().diskIO().execute(() -> {
+                    AppDatabase.getInstance(context).clearAllTables();
+                    SharedPrefsHelper.getInstance(context).deleteSavedData(Constants.USER_AUTH_TOKEN);
+                    Intent i = new Intent(context, LoginActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    context.startActivity(i);
+                    ((AppCompatActivity) context).finish();
                 });
 
             }

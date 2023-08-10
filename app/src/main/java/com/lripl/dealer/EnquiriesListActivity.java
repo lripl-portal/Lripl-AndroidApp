@@ -1,13 +1,13 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +18,6 @@ import com.lripl.database.AppDatabase;
 import com.lripl.dealer.databinding.EnquiriesListLayoutBinding;
 import com.lripl.entities.Orders;
 import com.lripl.entities.Users;
-import com.lripl.model.MenuModel;
 import com.lripl.utils.Constants;
 import com.lripl.viewmodels.CommonViewModelFactory;
 import com.lripl.viewmodels.EnquiryListViewModel;
@@ -27,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 public class EnquiriesListActivity extends BaseActivity{
 

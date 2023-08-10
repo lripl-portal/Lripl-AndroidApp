@@ -1,17 +1,17 @@
 package com.lripl.viewmodels;
 
 import android.Manifest;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -222,7 +222,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
     }
 
     private void insertUser(final Users user) {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 appDatabase.userDao().insert(user);
@@ -250,7 +250,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
 
 
     private void inserZonesAndStates(final List<Zones> zonesList) {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 for (Zones zones : zonesList) {
@@ -268,7 +268,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
 
     private Observable<Response<Users>> getObservable(String body) {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).profile(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).profile(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, ""), requestBody).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
@@ -298,7 +298,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
 
     private Observable<Response<List<Zones>>> getZonesObservable() {
         //RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),body);
-        return RestApiClient.getRetrofit().create(RestApiService.class).getzones(SharedPrefsHelper.getInstanse(activity)
+        return RestApiClient.getRetrofit().create(RestApiService.class).getzones(SharedPrefsHelper.getInstance(activity)
                 .get(Constants.USER_AUTH_TOKEN, "")).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
@@ -385,7 +385,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
     }
 
     private void fillStates() {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 stateList = appDatabase.statesDao().getAllStates();
@@ -447,7 +447,7 @@ public class ProfileViewModel extends BaseViewModel implements BaseViewInterface
     }
 
     private void setUserState(final String userState) {
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 stateList = appDatabase.statesDao().getAllStates();

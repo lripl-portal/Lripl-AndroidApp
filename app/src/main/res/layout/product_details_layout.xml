@@ -13,7 +13,7 @@
     </data>
 
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/selector_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -139,5 +139,5 @@
             app:lriplButtonStyle="B1"
             android:textColor="@color/white" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

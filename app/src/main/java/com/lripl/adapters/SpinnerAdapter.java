@@ -1,6 +1,5 @@
 package com.lripl.adapters;
 
-import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

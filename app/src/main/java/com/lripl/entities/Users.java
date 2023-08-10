@@ -1,13 +1,12 @@
 package com.lripl.entities;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 
 @SuppressWarnings("serial")
@@ -61,6 +60,9 @@ public class Users  implements Serializable{
 
 	@ColumnInfo(name = "token")
 	public String token;
+
+	@ColumnInfo(name = "fcmToken")
+	public String fcmToken;
 
 
 }

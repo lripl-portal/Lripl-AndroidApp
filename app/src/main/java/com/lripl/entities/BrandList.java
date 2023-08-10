@@ -1,11 +1,7 @@
 package com.lripl.entities;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.TypeConverters;
-
-import com.lripl.utils.BrandConverter;
-
-import java.util.List;
+import androidx.room.Entity;
+import androidx.room.TypeConverters;
 
 public class BrandList {
 

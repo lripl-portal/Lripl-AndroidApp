@@ -1,12 +1,12 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -35,27 +35,18 @@ public class SplashActivity extends AppCompatActivity implements TypeWriterTextV
     @Override
     public void onTypeComplete() {
         findViewById(R.id.txt_remote_control).setVisibility(View.VISIBLE);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        final LiveData<Integer> isUserExists = AppDatabase.getInstance(SplashActivity.this.getApplicationContext()).userDao().getUserCount();
-                        //final LiveData<List<States>> stateList = AppDatabase.getInstance(SplashActivity.this.getApplicationContext()).statesDao().getAllStates();
-                        isUserExists.observe(SplashActivity.this, new Observer<Integer>() {
-                            @Override
-                            public void onChanged(@Nullable Integer integer) {
-                                Log.i(SplashActivity.class.getName(),"----------User Count-------"+ integer+" : "+isUserExists.getValue());
-                                Intent i = new Intent(SplashActivity.this, (integer > 0) ? ItemsTypeListActivity.class : LoginActivity.class);
-                                startActivity(i);
-                                finish();
-                            }
-                        });
-                    }
-                });
-
-            }
-        },500);
+        new Handler().postDelayed(() -> {
+            final LiveData<Integer> isUserExists = AppDatabase.getInstance(SplashActivity.this.getApplicationContext()).userDao().getUserCount();
+            //final LiveData<List<States>> stateList = AppDatabase.getInstance(SplashActivity.this.getApplicationContext()).statesDao().getAllStates();
+            isUserExists.observe(SplashActivity.this, new Observer<Integer>() {
+                @Override
+                public void onChanged(@Nullable Integer integer) {
+                    Log.i(SplashActivity.class.getName(),"----------User Count-------"+ integer+" : "+isUserExists.getValue());
+                    Intent i = new Intent(SplashActivity.this, (integer > 0) ? ItemsTypeListActivity.class : LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
+            },500);
     }
 }

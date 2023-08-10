@@ -1,13 +1,13 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.databinding.DataBindingUtil;
-import android.os.Build;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -44,7 +44,7 @@ public class EnquiryItemDetails extends BaseActivity implements EnquiryItemsList
         });
 
 
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+        AppExecutors.getInstance().mainThread().execute(new Runnable() {
             @Override
             public void run() {
                 List<OrderItem> itemsList = AppDatabase.getInstance(EnquiryItemDetails.this).orderItemDao().getAllOrderItemsByorder(order.order_id);

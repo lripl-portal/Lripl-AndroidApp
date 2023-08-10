@@ -1,11 +1,11 @@
 package com.lripl.adapters;
 
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.Observer;
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,14 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lripl.database.AppDatabase;
-import com.lripl.dealer.BaseActivity;
 import com.lripl.dealer.CartListActivity;
 import com.lripl.dealer.R;
 import com.lripl.dealer.databinding.CartListItemLayoutBinding;
 import com.lripl.entities.ItemType;
 import com.lripl.entities.Products;
 import com.lripl.network.RestApiClient;
-import com.lripl.utils.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

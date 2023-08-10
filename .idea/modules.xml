@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lripl-AndroidApp.iml" filepath="$PROJECT_DIR$/.idea/modules/Lripl-AndroidApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Lripl-AndroidApp.app.unitTest.iml" />
     </modules>
   </component>
 </project>

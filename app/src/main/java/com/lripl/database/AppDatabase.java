@@ -1,11 +1,11 @@
 package com.lripl.database;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
-import android.arch.persistence.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
+import androidx.room.migration.Migration;
 import android.content.Context;
 import android.util.Log;
 
@@ -28,7 +28,7 @@ import com.lripl.entities.Zones;
 import com.lripl.utils.BrandConverter;
 import com.lripl.utils.DateTypeConverter;
 
-@Database(entities = {Users.class, Items.class, ItemType.class,States.class, Zones.class, Products.class, Orders.class, OrderItem.class},version = 3, exportSchema = false)
+@Database(entities = {Users.class, Items.class, ItemType.class,States.class, Zones.class, Products.class, Orders.class, OrderItem.class},version = 4, exportSchema = false)
 @TypeConverters({DateTypeConverter.class, BrandConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

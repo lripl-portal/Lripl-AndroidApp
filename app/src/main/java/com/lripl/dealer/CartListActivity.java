@@ -1,12 +1,12 @@
 package com.lripl.dealer;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.os.Build;
+import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -20,8 +20,6 @@ import com.lripl.viewmodels.CommonViewModelFactory;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import okhttp3.internal.Util;
 
 public class CartListActivity extends BaseActivity implements CartListAdapter.CartItemDeleteListener{
 

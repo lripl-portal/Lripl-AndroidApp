@@ -19,7 +19,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -31,7 +31,7 @@ import android.view.ViewTreeObserver;
 
 import com.lripl.dealer.R;
 
-public class ReadMoreTextView extends android.support.v7.widget.AppCompatTextView {
+public class ReadMoreTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     private static final int TRIM_MODE_LINES = 0;
     private static final int TRIM_MODE_LENGTH = 1;

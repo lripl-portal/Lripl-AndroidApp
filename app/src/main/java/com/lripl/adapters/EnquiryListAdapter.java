@@ -1,8 +1,8 @@
 package com.lripl.adapters;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.v4.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

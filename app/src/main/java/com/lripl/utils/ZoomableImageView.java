@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 
-public class ZoomableImageView extends android.support.v7.widget.AppCompatImageView{
+public class ZoomableImageView extends androidx.appcompat.widget.AppCompatImageView{
     Matrix matrix = new Matrix();
 
     static final int NONE = 0;
